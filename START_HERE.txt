@@ -1,0 +1,31 @@
+iMAGE — START HERE (Windows + VS Code)
+=====================================
+
+1. Extract the ZIP. Open the whole iMAGE_Notebook_Edition folder in VS Code.
+2. In VS Code click Terminal > New Terminal. The path should end in iMAGE_Notebook_Edition.
+3. Run these commands ONE AT A TIME:
+
+   py -3.11 -m venv .venv
+   .\.venv\Scripts\python.exe -m pip install --upgrade pip
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+
+4. Run the preview website (no models need downloading yet):
+
+   .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+
+5. Visit http://127.0.0.1:8000 in your browser. Test the upload.
+6. In VS Code, install the Microsoft Python and Jupyter extensions.
+7. Open notebooks/01_prepare_5000_images.ipynb. Click Select Kernel > .venv.
+8. Work through notebooks 01, then 02, then 03.
+9. To run REAL inference (online auto-fetch on first use), stop preview server
+   with Ctrl+C, then in the VS Code PowerShell terminal:
+
+   $env:IMAGE_MODE="real"
+   .\.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+
+   The FIRST REAL request needs internet and will automatically retrieve
+   architecture source files and hundreds of MB of pretrained weights.
+   Downloads are cached for later runs; no manual model download or git clone.
+
+If a command fails, copy the complete terminal error. Do not open main.html
+with Live Server; use the FastAPI URL. Read README.md for full instructions.

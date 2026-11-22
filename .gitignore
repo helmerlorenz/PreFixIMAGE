@@ -1,0 +1,42 @@
+
+# Python environment and cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Conda and local editor files
+.env
+.env.*
+!.env.example
+.vscode/
+
+# Training datasets and generated data
+data/raw/
+data/processed/
+data/inventory/
+data/splits.csv
+
+# Downloaded model sources and cache
+cache/
+
+# Model checkpoints (host separately)
+weights/*.pth
+weights/*.pt
+weights/*.ckpt
+
+# Generated evaluation files
+results/
+*.log
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Data directories for training and evaluation
+data/inventory/
+
+# Unused NIND dataset downloader
+scripts/nind_downloader.py
